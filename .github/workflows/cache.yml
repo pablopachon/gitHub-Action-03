@@ -13,6 +13,7 @@ jobs:
                 key: data
                 path: data.txt
             - run: echo ${{ steps.cache-data.outputs.cache-hit }}
-            - name: get data
-                if: steps.cache-data.outputs.cache-hit != 'true'
-                - run: node getData.js
+            - name: getmyData
+              if: steps.cache-data.outputs.cache-hit != 'true'
+              run: node .github/workflows/getData.js
+              
